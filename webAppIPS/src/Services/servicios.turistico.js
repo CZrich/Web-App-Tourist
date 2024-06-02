@@ -1,21 +1,14 @@
-import React from 'react'
-const URL_SERVICIOS="https://rickandmortyapi.com/api/character";
+ import axios from "axios"
+const URL_SERVICIOS="https://rickandmortyapi.com/api/character";  
+const URL_EMPLEADOS ="https://jsonplaceholder.typicode.com/users";
+//const sevircios=axios.create({URL_SERVICIOS});
   
-export default  async function ServiciosTuristico() {
-  let perso=[];
-   console.log("entre a riki y ,prty");
-   await fetch(URL_SERVICIOS)
-   .then(data =>  data.json())
-   .then(res=>{
-    //console.log("data",res.results);
-    //return res.results;
-    perso=  [...res.results];
-   })
-   .catch((err)=>{
-    console.log(err)
-   })
- console.log("array");
- console.log(perso);
- return perso;
+export function GetServiciosTuristico() {
+  return axios.get(URL_SERVICIOS);
+
+
 }
-ServiciosTuristico();
+export function GetEmpleados(){
+  return axios.get(URL_EMPLEADOS);
+
+}

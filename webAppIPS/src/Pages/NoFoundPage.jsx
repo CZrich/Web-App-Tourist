@@ -1,7 +1,10 @@
 import React from 'react'
-
-export default function NoFoundPage() {
+import {Link} from "react-router-dom"
+ export default function NoFoundPage() {
   return (
-    <div>NoFoundPage</div>
+    <div>NoFoundPage
+
+      <Link to="/">Regresar home</Link>
+    </div>
   )
 }

@@ -1,14 +1,16 @@
 import React from 'react'
-import { createBrowserRouter,Routes,Route } from 'react-router-dom'
 import NavBar from '../Components/NavBar'
 import Booter from '../Components/booter'
-import { Outlet } from 'react-router-dom'
 export default function Rutas() {
   return (
     <div>
         <NavBar/>
          
-
+         {/*---<div className='h-[900px] bg-red-200'>
+          Gente aqui ponemos un mixxxxx de todo
+         </div>
+  --->    */}   
+       
         <Booter/>
         
     </div>
