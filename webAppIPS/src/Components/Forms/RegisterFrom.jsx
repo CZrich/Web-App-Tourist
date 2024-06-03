@@ -5,6 +5,7 @@ import InputPassword from '../pures/InputPassword';
 import InputSelectNacionalidad from '../pures/InputSelectNacionalidad';
 import InputCel from '../pures/InputCel';
 import InputDNI from '../pures/InputDNI';
+import InputFechaNacimiento from '../pures/InputFechaNacimiento';
 
 export default function RegisterForm() {
   const { watch, register, reset, handleSubmit, formState: { errors } } = useForm();
@@ -92,30 +93,15 @@ export default function RegisterForm() {
         </div>
         
 
-        <div className='flex flex-col gap-2 m-4'>
-          <label htmlFor="nacimiento"> Fecha de Nacimiento</label>
-          <input type="date" {...register("nacimiento",{
-            required:true,
-            validate: (data)=>{
-              
-               const dataPer=new Date(data);
-              const   currentYear=new Date();
-               if(currentYear.getFullYear()-dataPer.getFullYear()>=18){
-                   return true;
-                 
-               }else{
+        <InputFechaNacimiento 
+           label={"Fecha de Nacieminto"}
+           id={"nacimiento"}
+           name={"nacimiento"}
+           errors={errors.nacimiento}
+           register={register}
+           type={"date"}
 
-                return "debe ser mayor de 18 años"
-               }
-
-            }
-
-
-          })} 
-          className='rounded-lg  w-[400px] h-[60px]'
-          />
-          {errors.nacimiento && <span>{errors.nacimiento?.message}</span>}
-        </div>
+           />
         <InputSelectNacionalidad
           value={"PE"}
          label={"Seleccione su  Pais"}

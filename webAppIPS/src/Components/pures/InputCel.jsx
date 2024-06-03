@@ -16,7 +16,9 @@ export default function InputCel({label,type,id,name,register,errors}) {
                 value:"/^\d+$/",
                 message:"ingrese solo numeros",
             },
-        })}/>
+        })}
+        className=' text-xl caret-blue-700 rounded-lg h-[60px] m-2 border-4 border-b-indigo-500 '
+        />
         {
             errors && <span>{errors?.message}</span>
         }
