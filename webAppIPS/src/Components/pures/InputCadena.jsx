@@ -3,7 +3,7 @@ import React from 'react'
 export default function InputCadena({required,label,type,errors,register,id,name}) {
   return (
 
-    <div>
+    <div   className='flex flex-col'>
       <label htmlFor={id}>{label}</label>
       <input type={type} id={id} name={name} {...register(name,
       {

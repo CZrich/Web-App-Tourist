@@ -20,7 +20,10 @@ export default function InputFechaNacimiento({ label, errors,type, id, name, reg
 
 
                     }
-                })} />
+                })} 
+                
+                className='w-full max-w-64  text-base'
+                />
             {
                 errors && <span className='text-red-600'> {errors?.message}</span>
             }

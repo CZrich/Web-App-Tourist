@@ -4,8 +4,8 @@ const regex=" /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@(
 export default function InputEmail({label,type,id,errors,register,name}) {
     //const{ register,formState:{errors}} =useForm();
   return (
-    <div>
-        <label htmlFor='email' className='m-2'>{label}</label>
+    <div className='flex flex-col'>
+        <label htmlFor='email' >{label}</label>
                     <input type={type} id={id} placeholder='example@gmail.com' name={name} {...register(name,
                         {
                             required: true,
@@ -13,7 +13,7 @@ export default function InputEmail({label,type,id,errors,register,name}) {
                                 
 
                         })}
-                        className=' text-xl caret-blue-700 rounded-lg h-[60px] m-2 border-4 border-b-indigo-500 '
+                        className=' text-xl caret-blue-700 rounded-lg h-[50px] w-[150px]m-2 border-4 border-b-indigo-500 '
                     />
                     {
                         errors && <span className='text-red-600'> {errors?.message}</span>

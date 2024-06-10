@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function InputDNI({label,type,id,name,register,errors}) {
   return (
-    <div>
+    <div  className='flex flex-col'>
         <label htmlFor={id}>{label}</label>
         <input type={type} id={id} name={name}{...register(name,{
 

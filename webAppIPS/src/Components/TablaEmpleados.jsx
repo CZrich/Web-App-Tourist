@@ -17,7 +17,7 @@ export default function TablaEmpleados() {
     return (
         <div className='flex flex-col justify-center m-5 relative overflow-x-auto'>
             <h2>Tabla Empleados</h2>
-            <table className='w-100 text-sm text-left rtl:text-right text-gray-800 dark:text-gray-400'>
+            <table className='w-[800px] text-sm text-left rtl:text-right text-gray-800 dark:text-gray-400'>
                 <thead className='text-xs text-gray-900 uppercase bg-gray-300 dark:bg-gray-700 dark:text-gray-400'>
                     <tr className=''>
                         <th  scope='col' className='px-6 py-3'>Nombre</th>
