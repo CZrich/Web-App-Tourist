@@ -29,7 +29,7 @@ export default function RegistroEmpleados() {
             label={"Nombres"}
             errors={errors.nombres}
             register={register}
-
+            
 
           />
 
