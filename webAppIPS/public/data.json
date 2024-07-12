@@ -1,0 +1,46 @@
+{
+
+    "clientes": [
+      {
+        "id_cliente": "C001",
+        "nombre": "Juan",
+        "apellido": "Perez",
+        "direccion": "Calle Falsa 123",
+        "dni": "12345678",
+        "fecha_nac": "1990-01-01",
+        "nacionalidad": "Española",
+        "celular": "123456789",
+        "email": "juan.perez@example.com"
+      },
+      {
+        "id_cliente": "C002",
+        "nombre": "Maria",
+        "apellido": "Gomez",
+        "direccion": "Avenida Siempreviva 742",
+        "dni": "87654321",
+        "fecha_nac": "1985-05-05",
+        "nacionalidad": "Argentina",
+        "celular": "987654321",
+        "email": "maria.gomez@example.com"
+      }
+    ],
+    "ventas": [
+      {
+        "num_venta": "V001",
+        "fecha_venta": "2024-07-01",
+        "medio_pago": "Tarjeta de crédito",
+        "cliente": "C001",
+        "servicio_paquete": "P001",
+        "empleado": "E001"
+      },
+      {
+        "num_venta": "V002",
+        "fecha_venta": "2024-07-02",
+        "medio_pago": "PayPal",
+        "cliente": "C002",
+        "servicio_paquete": "S002",
+        "empleado": "E002"
+      }
+    ]
+  }
+  

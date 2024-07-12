@@ -2,17 +2,22 @@ import React from 'react'
  import {Link, Outlet} from "react-router-dom"
 export default function NavBar() {
   return (
-    <div>
+    <div className="text-white bg-primary text-primary-foreground py-4 px-6 flex items-center justify-between bg-slate-950	">
+      <Link to="/" className='text-xl'>MariaBelen Travel</Link>
+    
+      <nav className="hidden md:flex items-center gap-6">
+        <Link to="/">Home</Link>
+        <Link to= "administrar">Administrar</Link>
+        <Link to="servicios">Servicios turisticos</Link>
+         <Link to="paquetes">Paquetes turisticos</Link>
+        <Link to="login">Login</Link>
+        <Link to="registrarse">Registrarse</Link>
 
-     <ul className='items-center flex flex-row space-x-20 bg-sky-400 h-[60px] justify-end '>
-        <li><Link to="/">Home</Link></li>
-        <li><Link to= "administrar">Administrar</Link> </li>
-        <li><Link to="servicios">Servicios turisticos</Link></li>
-        <li> <Link to="paquetes">Paquetes turisticos</Link></li>
-        <li><Link to="login">Login</Link></li>
-        <li><Link to="registrarse">Registrarse</Link></li>
+      </nav>
 
-     </ul>
+     
+
+   
       
       
       

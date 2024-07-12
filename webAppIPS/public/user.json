@@ -1,0 +1,135 @@
+
+{
+"user":[
+    {
+      "id": 1,
+      "nombre": "Juan",
+      "apellido": "Perez",
+      "direccion": "Calle Falsa 123",
+      "dni": "12345678A",
+      "fecha_nac": "1985-03-10",
+      "nacionalidad": "Argentina",
+      "celular": "555-1234",
+      "rol": "CLIENTE",
+      "sueldo": null,
+      "email": "juan.perez@example.com"
+    },
+    {
+      "id": 2,
+      "nombre": "Maria",
+      "apellido": "Gonzalez",
+      "direccion": "Avenida Siempre Viva 742",
+      "dni": "23456789B",
+      "fecha_nac": "1990-07-22",
+      "nacionalidad": "España",
+      "celular": "555-5678",
+      "rol": "EMPLEADO",
+      "sueldo": 1500.0,
+      "email": "maria.gonzalez@example.com"
+    },
+    {
+      "id": 3,
+      "nombre": "Carlos",
+      "apellido": "Rodriguez",
+      "direccion": "Boulevard de los Sueños Rotos 101",
+      "dni": "34567890C",
+      "fecha_nac": "1975-12-05",
+      "nacionalidad": "México",
+      "celular": "555-9012",
+      "rol": "CLIENTE",
+      "sueldo": null,
+      "email": "carlos.rodriguez@example.com"
+    },
+    {
+      "id": 4,
+      "nombre": "Ana",
+      "apellido": "Martinez",
+      "direccion": "Plaza Mayor 5",
+      "dni": "45678901D",
+      "fecha_nac": "1982-04-17",
+      "nacionalidad": "Colombia",
+      "celular": "555-3456",
+      "rol": "EMPLEADO",
+      "sueldo": 1800.0,
+      "email": "ana.martinez@example.com"
+    },
+    {
+      "id": 5,
+      "nombre": "Luis",
+      "apellido": "Lopez",
+      "direccion": "Calle del Sol 77",
+      "dni": "56789012E",
+      "fecha_nac": "1995-09-30",
+      "nacionalidad": "Chile",
+      "celular": "555-6789",
+      "rol": "ADMIN",
+      "sueldo": 2500.0,
+      "email": "luis.lopez@example.com"
+    },
+    {
+      "id": 6,
+      "nombre": "Elena",
+      "apellido": "Fernandez",
+      "direccion": "Camino de las Flores 22",
+      "dni": "67890123F",
+      "fecha_nac": "1987-01-15",
+      "nacionalidad": "Perú",
+      "celular": "555-1122",
+      "rol": "GUEST",
+      "sueldo": null,
+      "email": "elena.fernandez@example.com"
+    },
+    {
+      "id": 7,
+      "nombre": "David",
+      "apellido": "Garcia",
+      "direccion": "Avenida del Parque 98",
+      "dni": "78901234G",
+      "fecha_nac": "1978-11-11",
+      "nacionalidad": "Uruguay",
+      "celular": "555-3344",
+      "rol": "EMPLEADO",
+      "sueldo": 2000.0,
+      "email": "david.garcia@example.com"
+    },
+    {
+      "id": 8,
+      "nombre": "Lucia",
+      "apellido": "Torres",
+      "direccion": "Rambla del Mar 65",
+      "dni": "89012345H",
+      "fecha_nac": "1992-06-20",
+      "nacionalidad": "Venezuela",
+      "celular": "555-5566",
+      "rol": "CLIENTE",
+      "sueldo": null,
+      "email": "lucia.torres@example.com"
+    },
+    {
+      "id": 9,
+      "nombre": "Pedro",
+      "apellido": "Hernandez",
+      "direccion": "Paseo de la Castellana 44",
+      "dni": "90123456I",
+      "fecha_nac": "1984-08-18",
+      "nacionalidad": "Argentina",
+      "celular": "555-7788",
+      "rol": "EMPLEADO",
+      "sueldo": 2200.0,
+      "email": "pedro.hernandez@example.com"
+    },
+    {
+      "id": 10,
+      "nombre": "Marta",
+      "apellido": "Ramos",
+      "direccion": "Calle de la Libertad 11",
+      "dni": "01234567J",
+      "fecha_nac": "1998-02-23",
+      "nacionalidad": "España",
+      "celular": "555-9900",
+      "rol": "GUEST",
+      "sueldo": null,
+      "email": "marta.ramos@example.com"
+    }
+  ]
+}

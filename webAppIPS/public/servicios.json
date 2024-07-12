@@ -1,0 +1,68 @@
+{
+  "servicios": [
+    {
+    "id": "1",
+    "nombre": "Hotel XYZ",
+    "descripcion": "Habitación estándar por noche en el Hotel XYZ.",
+    "destino": "Cancún",
+    "fecha": "2024-07-15",
+    "precio": "100.00"
+  },
+  {
+    "id": "2",
+    "nombre": "Resort ABC",
+    "descripcion": "Suite de lujo con vista al mar en el Resort ABC.",
+    "destino": "Puerto Vallarta",
+    "fecha": "2024-08-20",
+    "precio": "250.00"
+  },
+  {
+    "id": "3",
+    "nombre": "Auto Compacto",
+    "descripcion": "Alquiler de auto compacto por día.",
+    "destino": "Madrid",
+    "fecha": "2024-09-05",
+    "precio": "50.00"
+  },
+  {
+    "id": "4",
+    "nombre": "Viaje de ida",
+    "descripcion": "Pasaje de colectivo de ida a Buenos Aires.",
+    "destino": "Buenos Aires",
+    "fecha": "2024-06-25",
+    "precio": "30.00"
+  },
+  {
+    "id": "5",
+    "nombre": "Vuelo a Miami",
+    "descripcion": "Pasaje de avión de ida y vuelta a Miami.",
+    "destino": "Miami",
+    "fecha": "2024-07-30",
+    "precio": "300.00"
+  },
+  {
+    "id": "6",
+    "nombre": "Tren rápido",
+    "descripcion": "Pasaje de tren rápido de París a Lyon.",
+    "destino": "París",
+    "fecha": "2024-08-10",
+    "precio": "80.00"
+  },
+  {
+    "id": "7",
+    "nombre": "Tour por la ciudad",
+    "descripcion": "Recorrido guiado por los puntos de interés de Roma.",
+    "destino": "Roma",
+    "fecha": "2024-09-15",
+    "precio": "120.00"
+  },
+  {
+    "id": "8",
+    "nombre": "Concierto en el Estadio",
+    "descripcion": "Entrada VIP para el concierto en el Estadio Nacional.",
+    "destino": "Londres",
+    "fecha": "2024-10-20",
+    "precio": "150.00"
+  }
+]
+}

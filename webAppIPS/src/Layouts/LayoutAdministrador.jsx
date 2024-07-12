@@ -9,6 +9,7 @@ export default function LayoutAdministrador() {
         <div className='bg-stone-300 h-full'>
         <AsideBar/>
         </div>
+        
          <div
           className='col-start-2 col-end-6 bg-green-200'
          >

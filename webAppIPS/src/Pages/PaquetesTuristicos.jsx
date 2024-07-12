@@ -1,7 +1,10 @@
 import React from 'react'
+import ListaPaquetes from '../Components/ListaPaquetes'
 
 export default function PaquetesTuristicos() {
   return (
-    <div>PaquetesTuristicos</div>
+    <div>
+      <ListaPaquetes/>
+    </div>
   )
 }
