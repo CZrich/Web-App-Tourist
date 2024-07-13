@@ -1,6 +1,6 @@
 import React from 'react'
 import { useForm } from "react-hook-form"
-import uss from "../../../public/assets/img/uss.png"
+//import uss from "../../../public/assets/img/uss.png"
 export default function LoginForm() {
 
     const { reset, register, handleSubmit, setValue, formState: { errors } } = useForm();
@@ -15,7 +15,7 @@ export default function LoginForm() {
                 className=' text-xl m-2 font-sans shadow-2xl w-[500px] h-[800px] m-10 p-10 flex flex-col gap-4 backdrop-sepia-0 bg-white/30    rounded-lg'
             >
                 <div className='border-2  flex justify-center items-center '>
-                    <img className=' border-2 border-red-900' src={uss} alt="asdsd" />
+                    <img className=' border-2 border-red-900' src="/assets/img/uss.png" alt="asdsd" />
 
                 </div>
                 <div className='mt-20 flex flex-col'>
