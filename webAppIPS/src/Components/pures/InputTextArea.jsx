@@ -13,8 +13,8 @@ export default function InputTextArea({ id, name, register, label, errors, requi
             message: "debe tener mas de 2 caracteres",
           },
           maxLength: {
-            value: 50,
-            message: "no puede tener mas de 20 caracteres"
+            value: 255,
+            message: "no puede tener mas de 255 caracteres"
           }
 
 

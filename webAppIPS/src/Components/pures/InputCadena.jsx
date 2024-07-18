@@ -14,7 +14,7 @@ export default function InputCadena({required,label,type,errors,register,id,name
             message:"debe tener mas de 2 caracteres",
         },
         maxLength:{
-            value:20,
+            value:60,
             message:"no puede tener mas de 20 caracteres"
         }
 

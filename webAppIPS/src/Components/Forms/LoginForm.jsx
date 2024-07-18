@@ -1,17 +1,26 @@
 import React from 'react'
 import { useForm } from "react-hook-form"
+import  {useNavigation} from "react-router-dom"
+import { login } from '../../auth/login';
 //import uss from "../../../public/assets/img/uss.png"
 export default function LoginForm() {
+    const navigation =useNavigation();
 
     const { reset, register, handleSubmit, setValue, formState: { errors } } = useForm();
-    const mando = (data) => {
+    const mando = handleSubmit( async data=> {
        
         reset();
-        console.log(data);
-    }
+        try{
+          const answer= await login(data);
+          console.log("res",answer);
+        }catch(error){
+            console.log("fallo ligin",error)
+        }
+      
+    });
     return (
         <div className='border-2  flex justify-center items-center'>
-            <form onSubmit={handleSubmit(mando)}
+            <form onSubmit={mando}
                 className=' text-xl m-2 font-sans shadow-2xl w-[500px] h-[800px] m-10 p-10 flex flex-col gap-4 backdrop-sepia-0 bg-white/30    rounded-lg'
             >
                 <div className='border-2  flex justify-center items-center '>
@@ -43,7 +52,7 @@ export default function LoginForm() {
                     {
                         required: true,
                         minLength: {
-                            value: 6,
+                            value: 2,
                             message: " debe tener minimo 6 caracteres."
 
 

@@ -1,9 +1,9 @@
 import React,{useEffect,useState} from 'react'
 
 export default function CardServicioTuristico({ servicio }) {
-  const [imageUrl, setImageUrl] = useState('');
+const [imageUrl, setImageUrl] = useState('');
 
-  useEffect(() => {
+  /*useEffect(() => {
     const fetchImage = async () => {
       const response = await fetch(`http://localhost:5173/api/servicios/${servicio.id}/imagen`);
       console.log(response)
@@ -18,6 +18,12 @@ export default function CardServicioTuristico({ servicio }) {
     };
 
     fetchImage();
+  }, [servicio.id]);*/
+  
+  useEffect(() => {
+    // Construye la URL de la imagen
+    const url = `http://127.0.0.1:2024/api/servicios/${servicio.id}/imagen`;
+    setImageUrl(url);
   }, [servicio.id]);
 
   return (
