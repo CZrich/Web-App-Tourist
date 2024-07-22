@@ -12,6 +12,8 @@ import PanelEmpleados from '../Pages/PanelEmpleados.jsx';
 import PanelServicios from '../Pages/PanelServicios.jsx';
 import PanelPaquetes from '../Pages/PanelPaquetes.jsx';
 import PanelClientes from '../Pages/PanelClientes.jsx';
+
+import {AuthProvider} from '../context/ContextoAuth.jsx';
 export default function Rutas() {
 
 
@@ -48,14 +50,15 @@ export default function Rutas() {
         {
 
           path: "administrar",
-          element: <LayoutAdministrador />,
+          element:  <LayoutAdministrador></LayoutAdministrador>,
           children: [
             {
              path:"empleados",
-             element:<PanelEmpleados/>
+             element:<PanelEmpleados></PanelEmpleados>
             },
             {
-              path:"servicios",
+              
+              path:"servicios/:id?",
               element:<PanelServicios/>
             },
             {
@@ -84,6 +87,9 @@ export default function Rutas() {
   ]);
 
   return (
-    <RouterProvider router={route} />
+    <AuthProvider>
+      <RouterProvider router={route} />
+    
+    </AuthProvider>
   )
 }

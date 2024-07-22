@@ -2,9 +2,9 @@ import React from 'react'
 
 export default function InputDNI({label,type,id,name,register,errors}) {
   return (
-    <div  className='flex flex-col'>
+    <div  className='flex flex-col m-4 gap-2'>
         <label htmlFor={id}>{label}</label>
-        <input type={type} id={id} name={name}{...register(name,{
+        <input type={type} id={id}  placeholder='  45963214' name={name}{...register(name,{
 
             required:true,
             minLength:{
@@ -17,7 +17,7 @@ export default function InputDNI({label,type,id,name,register,errors}) {
                 message:"ingrese solo numeros",
             },
         })}
-         className=' text-xl caret-blue-700 rounded-lg h-[60px] m-2 border-4 border-b-indigo-500 '
+         className='rounded-lg  w-[400px] h-[60px] text-xl   border-b-4 border-b-indigo-900 '
         />
         {
             errors && <span>{errors?.message}</span>

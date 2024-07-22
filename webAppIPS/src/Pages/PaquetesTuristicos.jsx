@@ -3,7 +3,7 @@ import ListaPaquetes from '../Components/ListaPaquetes'
 
 export default function PaquetesTuristicos() {
   return (
-    <div>
+    <div className='h-[100%]'>
       <ListaPaquetes/>
     </div>
   )

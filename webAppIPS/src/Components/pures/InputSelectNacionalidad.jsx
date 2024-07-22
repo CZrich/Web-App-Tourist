@@ -2,10 +2,10 @@ import React from 'react'
 
 export default function InputSelectNacionalidad({value,label,id,name,register}) {
     return (
-        < div  className='flex flex-col'>
+        < div  className='flex flex-col gap-2 m-4'>
             <label htmlFor={id}>{label}</label>
             <select defaultValue={value} id = {id} name={name}{...register(name)}
-            className=' w-full max-w-64 '
+            className='  caret-blue-700  text-xl  rounded-lg  w-[400px] h-[60px]   border-b-4 border-b-indigo-900 '
             >
                 <option value="AF">Afganistán</option>
                 <option value="AL">Albania</option>

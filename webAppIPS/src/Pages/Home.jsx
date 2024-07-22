@@ -78,22 +78,24 @@ export default function Home() {
         </div>
 
       </div>
-      <div>
-        <div>
-          <h2> Sobre Nosotros  </h2>
+      <div className='flex justify-center'>
+        <div className='justify-center w-[20%] h-[30%] m-4'>
+          <h2 className="text-3xl font-bold mb-4"> Sobre Nosotros  </h2>
+          <p>Somos una agencia de viajes líder en el mercado, con más de 20 años de experiencia. Nos dedicamos a brindar a nuestros clientes una experiencia de viaje excepcional.</p>
 
         </div>
 
-        <div>
-          <h2>¿Porque Elegirnos?</h2>
-          <h3>Atención Personalizada   </h3>
-          <p>   Nuestro equipo de expertos te asesorará para que tu viaje sea único y memorable.</p>
+        <div className='m-4'>
+          <h2 className="text-3xl font-bold mb-4">¿Porque Elegirnos?</h2>
+          <h3 className="text-lg font-semibold text-current mb-2 space-y-4 ">Atención Personalizada   </h3>
+          <p className='text-inherit'>   Nuestro equipo de expertos te asesorará para que tu viaje sea único y memorable.</p>
 
-          Garantía de Calidad
-          Trabajamos solo con proveedores confiables y de alta calidad.
+          <h3 className="text-lg font-semibold mb-2">Garantía de Calidad  </h3>
+          <p>  Trabajamos solo con proveedores confiables y de alta calidad. </p>
 
-          Precios Competitivos
-          Ofrecemos los mejores precios del mercado sin sacrificar la calidad.
+          <h3 className="text-lg font-semibold mb-2">Precios Competitivos </h3>
+          <p>  Ofrecemos los mejores precios del mercado sin sacrificar la calidad. </p> 
+         
         </div>
       </div>
 

@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function InputFechaServicio({id,name,label,register,errors,type}) {
   return (
-    <div>
+    <div className='flex flex-col m-4 gap-2'>
         
         <label htmlFor={id}>{label}</label>
             <input type={type} name={name} id={id}     {...register(name,
@@ -23,7 +23,7 @@ export default function InputFechaServicio({id,name,label,register,errors,type})
                     }
                 })} 
                 
-                className='w-full max-w-64  text-base'
+                className='text-xl caret-blue-700 rounded-lg  w-[400px] h-[60px]  border-b-4 border-b-indigo-900 '
                 />
             {
                 errors && <span className='text-red-600'> {errors?.message}</span>

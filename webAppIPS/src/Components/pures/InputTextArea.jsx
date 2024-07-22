@@ -2,9 +2,9 @@ import React from 'react'
 
 export default function InputTextArea({ id, name, register, label, errors, required }) {
   return (
-    <div>
+    <div className='flex flex-col w-[50%]  m-4 gap-2 '>
       <label htmlFor={id}>{label}</label>
-      <textarea name={name} id={id} {...register(name,
+      <textarea name={name} id={id} placeholder='  Añadir descipcion...' {...register(name,
 
         {
           required: { required },
@@ -19,7 +19,9 @@ export default function InputTextArea({ id, name, register, label, errors, requi
 
 
 
-        })}>
+        })}
+        className='w-[auto] overflow-y-auto h-[80px] resize-none   border-b-4 border-b-indigo-900 '
+        >
 
 
       </textarea>
