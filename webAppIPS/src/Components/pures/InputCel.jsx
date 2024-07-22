@@ -2,9 +2,9 @@ import React from 'react'
 
 export default function InputCel({label,type,id,name,register,errors}) {
   return (
-    <div  className='flex flex-col'>
+    <div  className='flex flex-col gap-2 m-4'>
         <label htmlFor={id}>{label}</label>
-        <input type={type} id={id} name={name}{...register(name,{
+        <input type={type} id={id}  placeholder=" 967854563"name={name}{...register(name,{
 
             required:true,
             minLength:{
@@ -17,7 +17,7 @@ export default function InputCel({label,type,id,name,register,errors}) {
                 message:"ingrese solo numeros",
             },
         })}
-        className=' text-xl caret-blue-700 rounded-lg h-[60px] m-2 border-4 border-b-indigo-500 '
+        className=' text-xl  rounded-lg  w-[400px] h-[60px]   border-b-4 border-b-indigo-900 '
         />
         {
             errors && <span>{errors?.message}</span>

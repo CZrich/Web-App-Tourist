@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function InputMonto({id,label,name,errors,placeholder,register,type,required,readOnly}) {
   return (
-    <div>
+    <div className='flex flex-col'>
       <label htmlFor={id}>{label}</label>
       <input type={type} id={id} name={name} placeholder={placeholder} readOnly={readOnly}  {...register(name,
       
@@ -10,7 +10,7 @@ export default function InputMonto({id,label,name,errors,placeholder,register,ty
          required:{required}
 
       })} 
-      className=' flex flex-col text-xl caret-blue-700 rounded-lg h-[60px] m-2 border-4 border-b-indigo-500 '
+      className=' text-xl caret-blue-700 rounded-lg  w-[400px] h-[60px]  border-b-4 border-b-indigo-900  '
       />
       {
         errors && <span > {errors?.message}</span>

@@ -1,11 +1,11 @@
 import React from 'react'
 
-export default function InputCadena({required,label,type,errors,register,id,name}) {
+export default function InputCadena({required,label,placeholder,type,errors,register,id,name}) {
   return (
 
-    <div   className='flex flex-col'>
+    <div   className='flex flex-col gap-2 m-4'>
       <label htmlFor={id}>{label}</label>
-      <input type={type} id={id} name={name} {...register(name,
+      <input type={type} id={id} placeholder={placeholder} name={name} {...register(name,
       {
         required:{required},
         
@@ -20,7 +20,7 @@ export default function InputCadena({required,label,type,errors,register,id,name
 
 
       })}
-      className=' text-xl caret-blue-700 rounded-lg h-[60px] m-2 border-4 border-b-indigo-500 '
+      className=' text-xl caret-blue-700 rounded-lg  w-[400px] h-[60px]  border-b-4 border-b-indigo-900  '
       />
       
       {

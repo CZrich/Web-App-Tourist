@@ -5,11 +5,13 @@ import InputTextArea from '../pures/InputTextArea';
 import InputCadena from '../pures/InputCadena';
 import InputMonto from '../pures/InputMonto';
 import InputFechaServicio from '../pures/InputFechaServicio';
-import { postServicioTuristico } from '../../Services/servicios.turistico';
+import TablaServicios from '../tablas/TablaServicios';
+import { postServicioTuristico, updateServicioTuristico } from '../../Services/servicios.turistico';
+import { toast ,Toaster} from "react-hot-toast"
 export default function FormServicio() {
     const parametro = useParams();
-
-    const { register, handleSubmit, setValue, formState: { errors } } = useForm();
+    const navigator =useNavigate();
+    const { reset, register, handleSubmit, setValue, formState: { errors } } = useForm();
     const cargar = handleSubmit(async data => {
         console.log(data);
         const formData = new FormData();
@@ -24,12 +26,20 @@ export default function FormServicio() {
 
         try {
             if (parametro.id) {
-                await ActualizarProducto(parametro.id, formData);
-                // toast.success('Producto actualizado')
+                console.log("lo que se actualiza",formData);
+                const da=formData.values();
+                
+                await updateServicioTuristico(parametro.id, formData);
+                reset();
+                toast.success("servicio actualizado")
+                navigator('/administrar/servicios');
+                       
             } else {
-                console.log("esto",formData);
+                console.log("esto", formData);
                 await postServicioTuristico(formData);
-                // toast.success('Producto Creado')
+                reset();
+                toast.success('Producto Creado')
+                navigator('/administrar/servicios');
                 console.log("servicio creado");
             }
             //navega('/listaProductos');
@@ -40,20 +50,10 @@ export default function FormServicio() {
         //navega('/listaProductos');
     });
     return (
-        <div>FormServicio
-            <form onSubmit={cargar} >
+        <div className='flex flex-col justify-center items-center m-4 h-[100%]' >FormServicio
+            <form onSubmit={cargar} className='w-[50%] flex flex-col justify-center items-center bg-stone-200' >
 
-                {/*
-                <InputMonto
-                    readOnly={false}
-                    required={true}
-                    register={register}
-                    id={"codServi"}
-                    name={"cogidoServi"}
-                    errors={errors.codigoServi}
-                    type={"number"}
-                    placeholder={"codigo.."}
-                /> */}
+
 
                 <InputCadena
                     id={"nombreServi"}
@@ -107,40 +107,53 @@ export default function FormServicio() {
                     readOnly={false}
                     errors={errors.costo}
                 />
-                <div className='flex  flex-col'>
-                    <label htmlFor="imagen">subir Imagen</label>
-                    <input type="file" id="imagen" {...register("imagen", {
-
-                        required: "subir imagen",
-
-                    })} />
-                    {
-                        errors.imagen && <span>{errors.imagen?.message}</span>
-                    }
-
+                <div className='flex flex-col m-4 gap-2'>
+                    <label htmlFor="imagen">Subir Imagen</label>
+                    <input
+                        type="file"
+                        id="imagen"
+                        {...register("imagen", {
+                            required: "Subir imagen es obligatorio",
+                            validate: (fileList) => {
+                                if (fileList && fileList[0]) {
+                                    const file = fileList[0];
+                                    const allowedFormats = ['image/jpg','image/jpeg', 'image/png', 'image/gif', 'image/webp'];
+                                    if (allowedFormats.includes(file.type)) {
+                                        return true;
+                                    } else {
+                                        return "Por favor, ingrese solo imágenes (JPG,JPEG, PNG, GIF o WebP)";
+                                    }
+                                }
+                                return "Por favor, seleccione un archivo";
+                            }
+                        })}
+                    className='text-xl  w-[400px] h-[60px] '
+                    />
+                    {errors.imagen && <span>{errors.imagen?.message}</span>}
                 </div>
 
-                <input  type="text" value={"A"}
-                 id='estado' {...register("estado")}
+                {/*<input type="text" value={"A"}
+                    id='estado' {...register("estado")}
                 >
 
-                </input>
-        
+                </input>*/
+}
 
                 <div className='flex  w-full justify-center m-4  items-center '>
 
                     <button type="submit"
 
-                        className='w-full  bg-rose-500 pt-4 pb-4 text-white text-xm rounded-lg hover:bg-rose-700'
+                        className='w-[50%] bg-rose-500 pt-4 pb-4 text-white text-xm rounded-lg hover:bg-rose-700'
                     >
 
-                        Guardar
+                      {parametro.id?"Actualizar":"Crear"}  Servicio
 
                     </button>
                 </div>
 
 
             </form>
+            <TablaServicios setValue={setValue}/>
         </div>
     )
 }

@@ -3,7 +3,7 @@ import ListaServicios from '../Components/ListaServicios'
 
 export default function ServiciosTuristicos() {
   return (
-    <div className='  relative overflow-x-auto ml-4'>
+    <div className='  ml-4 h-[100%]'>
        <ListaServicios></ListaServicios>
       
     </div>

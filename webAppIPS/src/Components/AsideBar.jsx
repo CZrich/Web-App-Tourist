@@ -1,7 +1,10 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-
+import {useAuth} from "../context/ContextoAuth"
 export default function AsideBar() {
+
+  const { authState } = useAuth();
+  const { role } = authState;
     return (
         <div 
         
@@ -10,25 +13,55 @@ export default function AsideBar() {
 
           
 
-                
-                    <Link to="servicios"
-                     className='hover:bg-stone-800 bg-yellow-300'
-                    >
+{
+                  role ==="admin" && (
+
+                    <>
+                    <Link to="servicios"> Servicios </Link>
+                   <Link to="paquetes">Paquetes</Link>
+                   <Link to="empleados">EMPLEADOS</Link> 
+                   <Link to="clientes">Clientes</Link>
+
                     
-                      Servicios
                     
-                    </Link>
+                    </>
+                  )
+                  
+                }
 
-                
-                    <Link to="paquetes">Paquetes</Link>
+{
+                  role ==="empleado" && (
 
-                
-                    <Link to="empleados">EMPLEADOS</Link>
+                    <>
+                    <Link to="servicios"> Servicios </Link>
+                   <Link to="paquetes">Paquetes</Link>
+                 
+                   <Link to="clientes">Clientes</Link>
 
-                
+                    
+                    
+                    </>
+                  )
+                  
+                }
 
-                
-                    <Link to="clientes">Clientes</Link>
+
+{ /*
+                  role  && (
+
+                    <>
+                    <Link to="servicios"> Servicios </Link>
+                   <Link to="paquetes">Paquetes</Link>
+                 
+
+                    
+                    
+                    </>
+                  )
+                  
+                */}
+
+
 
                 
 

@@ -8,7 +8,7 @@ export default function Layout() {
 
             <NavBar />
 
-            <Outlet />
+            <Outlet className="w-[100%]" />
 
             <Footer />
 

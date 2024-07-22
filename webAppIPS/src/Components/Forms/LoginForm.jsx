@@ -1,18 +1,24 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { useForm } from "react-hook-form"
 import  {useNavigation} from "react-router-dom"
-import { login } from '../../auth/login';
+import { Login } from '../../auth/login';
+
+import { useAuth,AuthContext} from "../../context/ContextoAuth"
 //import uss from "../../../public/assets/img/uss.png"
 export default function LoginForm() {
     const navigation =useNavigation();
-
+    //const {login} =useAuth();
+     
+    const {login } =useContext(AuthContext)
     const { reset, register, handleSubmit, setValue, formState: { errors } } = useForm();
     const mando = handleSubmit( async data=> {
        
         reset();
         try{
-          const answer= await login(data);
-          console.log("res",answer);
+          const res= await Login(data);
+          console.log("res",res);
+          login(res.data.toke,res.data.role,res.data.email)
+          navigation("/")
         }catch(error){
             console.log("fallo ligin",error)
         }

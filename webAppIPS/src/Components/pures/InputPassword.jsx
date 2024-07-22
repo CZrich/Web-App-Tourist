@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function InputPassword({label,type,name,id,placeholder,register,errors}) {
     return (
-        <div>
+        <div className='flex flex-col gap-2 m-4'>
             <label htmlFor={id}>{label}</label>
             <input type={type} id={id} placeholder={placeholder} name={name} {...register(name,
                 {
@@ -16,7 +16,7 @@ export default function InputPassword({label,type,name,id,placeholder,register,e
 
 
                 })}
-                className=' text-xl caret-blue-800 rounded-lg h-[60px] m-2  border-4 border-b-indigo-500 '
+                className=' text-xl caret-blue-800 rounded-lg  w-[400px] h-[60px] text-xl caret-blue-700  m-2    border-b-4 border-b-indigo-900 '
             />
 
             {

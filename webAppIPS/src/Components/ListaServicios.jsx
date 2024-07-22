@@ -13,7 +13,7 @@ export default function ListaServicios() {
         console.log(res.data);
          //return data;
         // setServicios(res.data);
-         setServicios(res.data);
+         setServicios(res.data.filter(item=>item.estado!="I"));
       
        }
   
@@ -23,11 +23,11 @@ export default function ListaServicios() {
 
    },[]);
   return (
-    <div className=' flex flex-wrap gap-4 m-2  bg-rose-500 '>
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-6 bg-muted rounded-lg">
         { sevicios?.map((data)=>(
      
      <CardServicioTuristico key={data.id} servicio={data}
-       className="bg-slate-950 p-4"
+     
       />
         ))
         
