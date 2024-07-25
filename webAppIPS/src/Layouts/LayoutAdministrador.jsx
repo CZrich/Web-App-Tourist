@@ -6,7 +6,7 @@ export default function LayoutAdministrador() {
     <div
      className='grid grid-cols-5 grid-rows-1 h-scream  '
     >
-        <div className='bg-stone-300 '>
+        <div className='bg-stone-800  m-4  rounded-lg'>
         <AsideBar/>
         </div>
         

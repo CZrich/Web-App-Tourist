@@ -8,8 +8,8 @@ export default function ListaPaquetes() {
     useEffect(()=>{
         async function cargaPaquetes(){
             const res= await getPaquetesTuristico();
-            console.log(res.data.paquetes)
-            setPaquetes(res.data.paquetes)
+            console.log(res.data)
+            setPaquetes(res.data)
         }
         cargaPaquetes();
 
@@ -21,7 +21,7 @@ export default function ListaPaquetes() {
 
     {
         paquetes?.map( (data)=>(
-           <CardPaqueteTuristico key={data.id} paquete={data}/>
+           <CardPaqueteTuristico key={data.paqCod} paquete={data}/>
 
         ))
     }
