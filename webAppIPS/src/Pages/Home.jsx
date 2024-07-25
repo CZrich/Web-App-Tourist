@@ -9,7 +9,7 @@ export default function Home() {
         <div className="relative z-10 flex items-center justify-center h-full">
 
           <div className=" flex justify-center items-center   flex-col bg-white bg-opacity-10 backdrop-blur-md p-4 rounded">
-            <h1 className="text-black text-[4rem] font-bold">Bienvenido a MariaBelen Travel</h1>
+            <h1 className="text-black text-[4rem] font-bold">Bienvenido a Acme Travel</h1>
             <p className="text-3xl mb-8"> <i> Descubre los mejores destinos y paquetes turísticos</i></p>
           </div>
         </div>

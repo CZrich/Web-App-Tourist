@@ -1,6 +1,7 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
-
+import { useNavigate } from 'react-router-dom';
 const AuthContext = createContext();
+ //const  corre=useNavigate();
 
 export const AuthProvider = ({ children }) => {
   const [authState, setAuthState] = useState({
@@ -31,6 +32,7 @@ export const AuthProvider = ({ children }) => {
     localStorage.removeItem('role');
     localStorage.removeItem('email');
     setAuthState({ token: null, role: null, email: null });
+   // corre("/login");
   };
 
   return (

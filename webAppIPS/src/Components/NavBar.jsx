@@ -7,7 +7,7 @@ export default function NavBar() {
   const {role} =authState;
   return (
     <div className="text-white bg-primary text-primary-foreground py-4 px-6 flex items-center justify-between bg-slate-950	">
-      <Link to="/" className='text-xl'>MariaBelen Travel</Link>
+      <Link to="/" className='flex items-center text-xl text-bold'> <img src="assets/icons/icons8-alpes-64.png" alt="ico" className='m-2 w-[3rem]' />Acme Travel</Link>
     
       <nav className="hidden md:flex items-center gap-6">
         <Link to="/">Home</Link>
@@ -16,6 +16,11 @@ export default function NavBar() {
           <Link to= "administrar">Administrar</Link>  
         )
             
+        }
+        {
+          role=="empleado" &&(
+            <Link to= "administrar">Administrar</Link>  
+          )
         }
        
         <Link to="servicios">Servicios turisticos</Link>

@@ -6,7 +6,7 @@ import { Login } from '../../auth/login';
 import { useAuth,AuthContext} from "../../context/ContextoAuth"
 //import uss from "../../../public/assets/img/uss.png"
 export default function LoginForm() {
-    const navigation =useNavigation();
+    const navigate =useNavigation();
     //const {login} =useAuth();
      
     const {login } =useContext(AuthContext)
@@ -17,8 +17,9 @@ export default function LoginForm() {
         try{
           const res= await Login(data);
           console.log("res",res);
-          login(res.data.toke,res.data.role,res.data.email)
-          navigation("/")
+          
+          login(res.data.toke,res.data.role,res.data.email);
+          navigate("/servicios");
         }catch(error){
             console.log("fallo ligin",error)
         }
