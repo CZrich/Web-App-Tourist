@@ -16,7 +16,7 @@ export default function TablaEmpleados() {
     }, [])
 
     return (
-        <div className='flex flex-col justify-center m-5 relative overflow-x-auto'>
+        <div className='flex flex-col justify-center items-center m-5 relative overflow-x-auto'>
             <h2>Tabla Empleados</h2>
             <table className='w-[800px] text-sm text-left rtl:text-right text-gray-800 dark:text-gray-400'>
                 <thead className='text-xs text-gray-900 uppercase bg-gray-300 dark:bg-gray-700 dark:text-gray-400'>
@@ -49,12 +49,12 @@ export default function TablaEmpleados() {
                             <td className='px-6 py-3'>{empleado.phone}</td>
                             <td className='px-6 py-3'>{empleado.email}</td>
                             <td className='px-6 py-3'>
-                                <button className='bg-rose-800  p-2 rounded-lg text-white'>
+                                <button className='bg-rose-600  p-2 rounded-lg text-white'>
                                     Eliminar
                                 </button>
                             </td>
                             <td className='px-6 py-3'>
- 
+                                <button className='bg-green-600 p-2 rounded-lg text-white'>Editar</button>
                             </td>
                         </tr>
                     ))}

@@ -15,9 +15,9 @@ export default function RegistroEmpleados() {
     reset()
   }
   return (
-    <div className='flex justify-center'>RegistroEmpleados
+    <div className='flex justify-center'>
 
-      <form onSubmit={handleSubmit(mandar)} className='justify-center flex flex-wrap m-1 h-[800px] w-[700px] bg-stone-400 text-lg font-serif ' >
+      <form onSubmit={handleSubmit(mandar)} className='justify-center flex flex-col  m-1 h-[auto] w-[1000px] bg-stone-200 text-lg font-serif ' >
 
         <div className='flex  space-x-20'>
           <InputCadena
@@ -71,7 +71,7 @@ export default function RegistroEmpleados() {
 
         </div>
 
-        <div className='flex  space-x-20 bg-yellow-200'>
+        <div className='flex  space-x-20 '>
           <InputCel
             label={"Ingrese numero de contacto:"}
             type={"number"}
@@ -98,7 +98,7 @@ export default function RegistroEmpleados() {
 
 
 
-        <div className='flex  space-x-40 bg-yellow-200'>
+        <div className='flex  space-x-40 '>
           <InputEmail
             label={"Ingrese correo"}
             type={"email"}

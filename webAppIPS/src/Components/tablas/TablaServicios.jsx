@@ -60,14 +60,14 @@ export default function TablaServicios({setValue}) {
                  servicio.estado=="A"?
                  ( <button className='bg-rose-800  p-2 rounded-lg text-white' onClick={async () => {
                   navigator(`/administrar/servicios/${servicio.id}`)
-                 const respuesta = window.confirm('esta seguro');
-                 if (respuesta) {
+                // const respuesta = window.confirm('esta seguro');
+                // if (respuesta) {
                    await inactivarServicio(parametro.id);
                    console.log("se eliminaria el producto");
                   toast.success('Producto Eliminado')
                   // navega('/listaProductos')
                    navigator(`/administrar/servicios`);
-                 }
+                // }
                }}
                >
                  Eliminar
@@ -75,14 +75,14 @@ export default function TablaServicios({setValue}) {
                :(
                 <button className='bg-blue-800  p-2 rounded-lg text-white' onClick={async () => {
                   navigator(`/administrar/servicios/${servicio.id}`)
-                 const respuesta = window.confirm('esta seguro');
-                 if (respuesta) {
+                 //const respuesta = window.confirm('esta seguro');
+                // if (respuesta) {
                   await activarServicio(parametro.id);
                    console.log("se eliminaria el producto");
                   toast.success('Producto Eliminado')
                   navigator(`/administrar/servicios`);
-                  // navega('/listaProductos')
-                 }
+                 // // navega('/listaProductos')
+                // }
                }}>
                  Activar
                </button>
