@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useForm } from "react-hook-form";
 import InputEmail from '../pures/InputEmail';
@@ -11,241 +11,59 @@ import InputFechaNacimiento from '../pures/InputFechaNacimiento';
 import { registerUser } from '../../auth/register';
 
 export default function RegisterForm() {
+  const navigate = useNavigate();
+  const { watch, register, handleSubmit, formState: { errors } } = useForm();
 
-  const navegation = useNavigate();
-
-  const { watch, register, reset, handleSubmit, formState: { errors } } = useForm();
-  const mandar = handleSubmit(async data => {
-    console.log(data);
+  const mandar = handleSubmit(async (data) => {
     try {
-      const rest = await registerUser(data);
-      //toast.success("registro exitoso");
-      navegation("/login");
-
+      await registerUser(data);
+      navigate("/login");
     } catch (error) {
-      toast.error('ocurrio un erro!');
-      console.log(error)
+      console.log(error);
     }
-    reset();
   });
+
   return (
-    <div className='flex justify-center border-2 items-center '>
-
-      <form onSubmit={mandar}
-        className='flex flex-col gep-4  m-4 rounded-lg w-[900px] h-[auto] items-center shadow-2xl'
-      >
-        <div className='flex'>
-          <div className='flex flex-col'>
-            <div className='flex flex-col gap-2 m-4'>
-              <label htmlFor="nombre">Nombres</label>
-              <input type="text" placeholder='  Carlos...' id="nombre"{...register("nombre",
-                {
-                  required: "nombre invalido",
-                  pattern: "/^[a-zA-Z]+$/",
-                  minLength: {
-                    value: 2,
-                    message: "debe tener mas de dos caracteres",
-                  },
-                  maxLength: {
-                    value: 20,
-                    message: "no puede tener mas de 20 caracteres",
-                  }
-
-                }
-
-              )}
-                className=' text-xl  rounded-lg  w-[400px] h-[60px]   border-b-4 border-b-indigo-900 '
-              />
-              {errors.nombre && <span>{errors.nombre?.message}</span>}
-            </div>
-
-            <div className='flex flex-col gap-2 m-4'>
-              <label htmlFor="apellidoP">Apellidos Parteno</label>
-              <input type="text" placeholder="   Fernandez..." id="apellidoP" {...register("apellidoPaterno",
-                {
-
-                  required: "apellido invalido",
-                  pattern: "/^[a-zA-Z]+$/",
-                  minLength: {
-                    value: 2,
-                    message: "debe tener mas de dos caracteres",
-                  },
-                  maxLength: {
-                    value: 20,
-                    message: "no puede tener mas de 20 caracteres",
-                  }
-
-
-
-                })}
-                className=' text-xl  rounded-lg  w-[400px] h-[60px]   border-b-4 border-b-indigo-900 '
-              />
-              {errors.apellidoPaterno && <span>{errors.apellidoPaterno.message}</span>}
-
-            </div>
-            <div className='flex flex-col gap-2 m-4'>
-              <label htmlFor="apellidoM">Apellidos Materno</label>
-              <input type="text" id="apellidoM" placeholder='  Divala..' {...register("apellidoMaterno",
-                {
-
-                  required: "apellido invalido",
-                  pattern: "/^[a-zA-Z]+$/",
-                  minLength: {
-                    value: 2,
-                    message: "debe tener mas de dos caracteres",
-                  },
-                  maxLength: {
-                    value: 20,
-                    message: "no puede tener mas de 20 caracteres",
-                  }
-
-
-
-                })}
-                className=' text-xl  rounded-lg  w-[400px] h-[60px]   border-b-4 border-b-indigo-900 '
-              />
-              {errors.apellidoMaterno && <span>{errors.apellidoMaterno.message}</span>}
-
-
-
-
-            </div>
-
-          </div>
-          <div className='flex flex-col'>
-            <div>
-
-            </div>
-            <InputCel
-              label={"Ingrese numero de contacto:"}
-              type={"number"}
-              id={"numeroCel"}
-              name={"celular"}
-              register={register}
-              errors={errors.numeroCel}
-
-
-            />
-
-            <InputCadena
-              id={"direccion"}
-              label={"Direccion"}
-              type={"text"}
-              placeholder={" Av. Las frecias ...."}
-              name={"direccion"}
-              register={register}
-              errors={errors.direccion}
-
-
-            />
-            <InputDNI
-              label={"Ingrese su DNI: "}
-              type={"number"}
-              id={"dni"}
-              name={"dni"}
-              register={register}
-              errors={errors.dni}
-            />
-
-          </div>
-
-        </div>
-
-
-        <div className='flex'>
-
-
-            <InputSelectNacionalidad
-              value={"PE"}
-              label={"Seleccione su  Pais"}
-              id={"pais"}
-              name={"nacionalidad"}
-              register={register}
-
-            />
-
+    <div className='min-h-screen flex justify-center items-center bg-slate-50 p-4'>
+      <form onSubmit={mandar} className='bg-white p-8 md:p-12 rounded-3xl shadow-xl w-full max-w-4xl border border-slate-100'>
+        <h2 className="text-3xl font-bold text-slate-800 mb-8">Registro de Usuario</h2>
+        
+        {/* Grid de 2 columnas para escritorio, 1 para móvil */}
+        <div className='grid grid-cols-1 md:grid-cols-2 gap-6'>
           
+          <InputCadena id={"nombre"} label={"Nombres"} type={"text"} name={"nombre"} register={register} errors={errors.nombre} />
+          <InputCadena id={"apellidoP"} label={"Apellido Paterno"} type={"text"} name={"apellidoPaterno"} register={register} errors={errors.apellidoPaterno} />
+          <InputCadena id={"apellidoM"} label={"Apellido Materno"} type={"text"} name={"apellidoMaterno"} register={register} errors={errors.apellidoMaterno} />
+          
+          <InputCel label={"Número de celular:"} type={"number"} id={"numeroCel"} name={"celular"} register={register} errors={errors.celular} />
+          
+          <InputCadena id={"direccion"} label={"Dirección"} type={"text"} name={"direccion"} register={register} errors={errors.direccion} />
+          <InputDNI label={"DNI:"} type={"number"} id={"dni"} name={"dni"} register={register} errors={errors.dni} />
 
-            <InputFechaNacimiento
-              label={"Fecha de Nacieminto"}
-              id={"nacimiento"}
-              name={"fechaNacimiento"}
-              errors={errors.nacimientoNacimiento}
-              register={register}
-              type={"date"}
-
-            />
-
-
-
+          <InputSelectNacionalidad label={"País"} id={"pais"} name={"nacionalidad"} register={register} />
+          <InputFechaNacimiento label={"Fecha de Nacimiento"} id={"nacimiento"} name={"fechaNacimiento"} register={register} type={"date"} />
         </div>
 
-
-
-
-
-
-
-
-
-        <InputEmail
-          label={"Email"}
-          type={"email"}
-          id={"email"}
-          errors={errors.email}
-          register={register}
-          name={"email"}
-        />
-        <InputPassword
-          label={"Password"}
-          type={"password"}
-          id={"password"}
-          name={"password"}
-          placeholder={"password"}
-          register={register}
-          errors={errors.password}
-
-        />
-        <div className='flex flex-col'>
-          <label htmlFor="confirmPassword">Confirmar Password</label>
-          <input type="password" id="confirmPassword" placeholder='password...'{...register("confirmPassword", {
-
-            required: true,
-            minLength: {
-              value: 6,
-              message: "minimo 6 caracteres",
-            },
-            validate: (data) => {
-              if (data === watch("password")) {
-                return true;
-              } else {
-                return "las contraseñas no coinciden";
-              }
-            }
-          })} className='rounded-lg  w-[400px] h-[60px] text-xl caret-blue-700  m-2   border-b-4 border-b-indigo-900' />
-          {
-            errors.confirmPassword && <span>{errors.confirmPassword?.message}</span>
-          }
-
-
+        <div className="mt-6">
+            <InputEmail label={"Email"} type={"email"} id={"email"} errors={errors.email} register={register} name={"email"} />
         </div>
 
-
-
-
-        <div className='bg-stone-100 my-8'>
-          <button type="submit"
-            className='bg-slate-800 rounded-lg p-4 hover:bg-slate-600 w-[50rem] text-white'
-          >
-            Registrarse
-
-          </button>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
+            <InputPassword label={"Contraseña"} id={"password"} name={"password"} register={register} errors={errors.password} />
+            
+            <div className='flex flex-col'>
+              <label className="text-sm font-semibold text-slate-600 mb-1">Confirmar Contraseña</label>
+              <input type="password" {...register("confirmPassword", { 
+                  validate: (v) => v === watch("password") || "Las contraseñas no coinciden" 
+              })} className="w-full p-3 rounded-xl border border-slate-200 focus:border-indigo-500 transition-all outline-none" />
+              {errors.confirmPassword && <span className='text-red-500 text-xs'>{errors.confirmPassword.message}</span>}
+            </div>
         </div>
 
+        <button type="submit" className='mt-10 w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-4 rounded-xl shadow-lg shadow-indigo-200 transition-all active:scale-95'>
+          Registrarse ahora
+        </button>
       </form>
-
-
-
     </div>
-  )
+  );
 }

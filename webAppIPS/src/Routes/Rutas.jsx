@@ -51,7 +51,13 @@ export default function Rutas() {
 
           path: "administrar",
           element:  <LayoutAdministrador></LayoutAdministrador>,
+          errorElement:<NoFoundPage/>,
           children: [
+            {
+     
+             index: true, 
+              element: <PanelServicios />
+             },
             {
              path:"empleados",
              element:<PanelEmpleados></PanelEmpleados>
@@ -59,6 +65,7 @@ export default function Rutas() {
             {
               
               path:"servicios/:id?",
+              
               element:<PanelServicios/>
             },
             {

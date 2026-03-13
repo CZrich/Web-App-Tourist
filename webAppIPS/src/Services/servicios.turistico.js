@@ -1,5 +1,5 @@
 import axios from "axios"
-const URL_SERVICIOS = "http://100.29.145.50/api/v1/services";
+//const URL_SERVICIOS = "http://100.29.145.50/api/v1/services";
 
 
 
@@ -17,6 +17,7 @@ export function postServicioTuristico(servicio) {
 }
 
 export function updateServicioTuristico(id, servicio) {
+  console.log("se envia ",servicio)
   return axios.put(URL_PRUEBA_SERVICIO + '/' + id, servicio)
 }
 

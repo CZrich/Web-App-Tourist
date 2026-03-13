@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function InputCargo({label,register,id,name,value}) {
   return (
-    <div className='flex flex-col  w-full'>
+    <div >
         <label htmlFor={id}>{label}</label>
          <select id={id}  defaultValue={value} name={name} {...register(name)}
          className=' text-lg h-[20px] w-[200px]'

@@ -1,108 +1,74 @@
-import React, { useContext } from 'react'
-import { useForm } from "react-hook-form"
-import  {useNavigation} from "react-router-dom"
+import { useContext } from 'react';
+import { useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
 import { Login } from '../../auth/login';
+import { AuthContext } from "../../context/ContextoAuth";
 
-import { useAuth,AuthContext} from "../../context/ContextoAuth"
-//import uss from "../../../public/assets/img/uss.png"
 export default function LoginForm() {
-    const navigate =useNavigation();
-    //const {login} =useAuth();
-     
-    const {login } =useContext(AuthContext)
-    const { reset, register, handleSubmit, setValue, formState: { errors } } = useForm();
-    const mando = handleSubmit( async data=> {
-       
-        reset();
-        try{
-          const res= await Login(data);
-          console.log("res",res);
-          
-          login(res.data.toke,res.data.role,res.data.email);
-          navigate("/servicios");
-        }catch(error){
-            console.log("fallo ligin",error)
+    const navigate = useNavigate();
+    const { login } = useContext(AuthContext);
+    const { register, handleSubmit, formState: { errors } } = useForm();
+
+    const mando = handleSubmit(async data => {
+        try {
+            const res = await Login(data);
+            login(res.data.token, res.data.role, res.data.email);
+            navigate("/servicios");
+        } catch (error) {
+            console.error("Fallo login", error);
         }
-      
     });
+
     return (
-        <div className='border-2  flex justify-center items-center'>
-            <form onSubmit={mando}
-                className=' text-xl m-2 font-sans shadow-2xl w-[500px] h-[800px] m-10 p-10 flex flex-col gap-4 backdrop-sepia-0 bg-white/30    rounded-lg'
+        <div className="min-h-screen flex items-center justify-center bg-slate-50 p-4">
+            <form 
+                onSubmit={mando}
+                className="w-full max-w-md bg-white p-8 rounded-2xl shadow-xl border border-slate-100 flex flex-col gap-6"
             >
-                <div className='border-2  flex justify-center items-center '>
-                    <img className=' border-2 border-red-900' src="/assets/img/uss.png" alt="asdsd" />
-
+                {/* Logo / Header */}
+                <div className="flex justify-center mb-4">
+                    <div className="w-24 h-24 bg-slate-100 rounded-full flex items-center justify-center overflow-hidden border-2 border-indigo-100">
+                        <img src="/assets/img/uss.png" alt="Logo" className="w-16 h-16 object-contain" />
+                    </div>
                 </div>
-                <div className='mt-20 flex flex-col'>
-                    <label htmlFor='email' className='m-2'>Email</label>
-                    <input type="text" id='email' placeholder='exameple@gmail.com' {...register("email",
-                        {
-                            required: true,
-                            pattern: {
-                                value: /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
-                                message: " correo ingresado invalido."
-                            },
 
-                        })}
-                        className=' text-xl caret-blue-700 rounded-lg h-[60px] m-2 border-4 border-b-indigo-500 '
+                <h2 className="text-2xl font-bold text-center text-slate-800">Bienvenido</h2>
+                <p className="text-center text-slate-500 text-sm mb-4">Ingresa tus credenciales para continuar</p>
+
+                {/* Email */}
+                <div className="flex flex-col gap-2">
+                    <label htmlFor="email" className="text-sm font-semibold text-slate-600">Email</label>
+                    <input 
+                        type="text" 
+                        id="email" 
+                        placeholder="ejemplo@correo.com" 
+                        {...register("email", { required: "El correo es obligatorio" })}
+                        className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-100 transition-all outline-none"
                     />
-                    {
-                        errors.email && <span className='text-red-600'> {errors.email?.message}</span>
-                    }
-
+                    {errors.email && <span className="text-red-500 text-xs">{errors.email.message}</span>}
                 </div>
 
-                <div className='mt-10 flex flex-col'>
-                <label htmlFor='password' className='m-1'>Password</label>
-                <input type="password" id='password' placeholder='password' {...register("password",
-                    {
-                        required: true,
-                        minLength: {
-                            value: 2,
-                            message: " debe tener minimo 6 caracteres."
-
-
-                        }
-
-
-                    })}
-                    className=' text-xl caret-blue-800 rounded-lg h-[60px] m-2  border-4 border-b-indigo-500 '
-                />
-
-                {
-
-                    errors.password && <span className='text-red-600'> {errors.password?.message}</span>
-                }
-
-
+                {/* Password */}
+                <div className="flex flex-col gap-2">
+                    <label htmlFor="password" className="text-sm font-semibold text-slate-600">Contraseña</label>
+                    <input 
+                        type="password" 
+                        id="password" 
+                        placeholder="••••••••" 
+                        {...register("password", { required: "La contraseña es obligatoria" })}
+                        className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-100 transition-all outline-none"
+                    />
+                    {errors.password && <span className="text-red-500 text-xs">{errors.password.message}</span>}
                 </div>
 
-
-              
-
-
-                <div className=' mt-10 flex intems-center justify-center'>
-
-                    <button type="submit"
-                        className='text-white hover:bg-sky-700 text-center rounded-lg  w-[200px] h-[50px]  m-3 bg-blue-500'
-                    >
-
-                        Iniciar Sesión
-
-                    </button>
-
-
-                </div>
-
-
-
-
-
+                {/* Button */}
+                <button 
+                    type="submit"
+                    className="mt-4 w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 rounded-xl shadow-lg shadow-indigo-200 transition-all active:scale-95"
+                >
+                    Iniciar Sesión
+                </button>
             </form>
-
-
-
         </div>
-    )
+    );
 }
